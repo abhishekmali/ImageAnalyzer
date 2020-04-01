@@ -1,0 +1,109 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block header %}
+	<h3>History Page</h3>
+{% endblock %}
+
+{% block content %}
+	<h3>History Page Content</h3>
+
+	<h2 align="center"> ---------- Previously uploaded images List ---------- </h2>
+
+	<hr>
+
+	<table align = "center" cellpadding="20" >
+		<tr>
+			<!--
+				<th>S. No.</th>
+			-->
+			<th>Original Image</th>
+			<th>Test Image 1</th>
+			<th>Test Image 2</th>
+			<th>Test Image 3</th>
+			<th>View Result</th>
+			<!--
+				<th>Test Image 4</th>
+			-->
+		</tr>
+
+		<tr>
+			<td colspan="10">
+				<hr>
+			</td>
+		</tr>
+		
+		{% for imgdetails in imglist %}
+		<a href="">
+		<tr>
+			<!--
+				<td><b>{{imgdetails.0}}</b></td>
+			-->
+
+			<td>
+				<div>
+					<img src={{media_url}}{{imgdetails.1}}  height="" width="240" /><br><br>
+					<b>{{imgdetails.1}}</b>
+				</div>
+			</td>
+
+			<td>
+				<div>
+					<img src={{media_url}}{{imgdetails.2}}  height="" width="240" /><br><br>
+					<b>{{imgdetails.2}}</b>
+				</div>
+			</td>
+
+			<td>
+				<div>
+					<img src={{media_url}}{{imgdetails.3}}  height="" width="240" /><br><br>
+					<b>{{imgdetails.3}}</b>
+				</div>
+			</td>
+
+			<td>
+				<div>
+					<img src={{media_url}}{{imgdetails.4}}  height="" width="240" /><br><br>
+					<b>{{imgdetails.4}}</b>
+				</div>
+			</td>
+			<!--
+			<td>
+				<div>
+					<img src={{media_url}}{{imgdetails.10}}  height="" width="240" /><br><br>
+					<b>{{imgdetails.9}}</b>
+				</div>
+			</td>
+			-->	
+			<td>
+				<!--href = {{curl}}result/?s=block&rid={{user.0}}-->
+				<a title="View Result" href = "{{curl}}result/?imageid={{imgdetails.0}}">
+					<img src="{% static 'images/result.png' %}" height="60" width="60" />
+				</a>
+			</td>
+			
+		</tr>
+
+		<tr>
+			<td colspan="6">
+				<hr>
+			</td>
+		</tr>
+
+		{% endfor %}
+
+	</table>
+
+<!--
+	{% for imgdetails in imglist %}
+		<a href=""  >
+			<div>
+				<img src={{media_url}}{{imgdetails.2}}  height="150" width="13%" /> <br>
+				<b>{{imgdetails.1}}</b>
+			</div>
+		</a>	
+	{% endfor %}
+-->
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'home.html' %}
+
+
+{% block header %}
+	<h3>Result Page</h3>
+{% endblock %}
+
+
+{% block content %}
+	<h3>Result Page Content</h3>
+
+	<font color = "orange">
+		{{output}}
+	</font>
+
+	<h2 align="center">
+		---------- Result after analyzation will be displayed Here ---------- 
+	</h2>
+
+	{% csrf_token %}
+	
+
+	<table cellspacing="20" cellpadding="20" align = "center">
+		<tr>
+			<td colspan = "2" align = "center">
+				<hr>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<img src={{media_url}}{{imglist.0.1}} / width="250" />
+				<p>Original</p>
+			</td>
+			<td>
+				<img src={{media_url}}{{imglist.0.1}} / width="250" />
+				<p>Original</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan = "2" align = "center">
+				<h3>Structural Similarity: {{c.0}}</h3>
+				<hr>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<img src={{media_url}}{{imglist.0.1}} width="250" />
+				<p>Original</p>
+			</td>
+			<td>
+				<img src={{media_url}}{{imglist.0.2}} width="250" />
+				<p>Edited 1</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan = "2" align = "center">
+				<h3>Structural Similarity: {{c.1}}</h3>
+				<hr>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<img src={{media_url}}{{imglist.0.1}} width="250" />
+				<p>Original</p>
+			</td>
+			<td>
+				<img src={{media_url}}{{imglist.0.3}} width="250" />
+				<p>Edited 2</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan = "2" align = "center">
+				<h3>Structural Similarity: {{c.2}}</h3>
+				<hr>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<img src={{media_url}}{{imglist.0.1}} width="250" />
+				<p>Original</p>
+			</td>
+			<td>
+				<img src={{media_url}}{{imglist.0.4}} width="250" />
+				<p>Edited 3</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan = "2" align = "center">
+				<h3>Structural Similarity: {{c.3}}</h3>
+				<hr>
+			</td>
+		</tr>
+	</table>
+
+{% endblock %}

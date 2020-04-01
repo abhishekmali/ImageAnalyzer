@@ -1,0 +1,100 @@
+{% load static %}
+
+<html>
+	<head>
+		<title>Image Analyzer</title>
+
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+		<link href="{% static 'images/image_icon.png' %}" rel="icon" />
+	</head>
+	<body>
+
+		<div id="logo">
+			<h1>
+				Image Analyzer
+			</h1>
+		</div>
+
+		<hr>
+
+		<div id = "header">
+			{% block header %}
+			<h3>Home Page</h3>
+			{% endblock %}
+		</div>
+
+		<hr>
+
+		<div id = "navigation">
+			{% block navigation %}
+			<ul>
+				<li><a href="{{curl}}home">Home</a></li><br>
+				<li><a href="{{curl}}history">History</a></li><br>
+				<!--<li><a href="{{curl}}result">Result</a></li><br>-->
+			</ul>
+			{% endblock %}
+		</div>
+
+		<hr>
+
+		<font color="orange">
+			{{output}}
+		</font>
+
+		<div id = "content">
+			{% block content %}
+
+			<h3>Home Page Content</h3>
+
+			<form method = "post" action = {{curl}}home/ enctype="multipart/form-data">
+				{% csrf_token %}
+				<table cellspacing="10" cellpadding="6">
+
+					<tr>
+						<td>Upload Original Image</td>
+						<td>
+							<input type="file" name="filename" required="">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Upload Test Image 1</td>
+						<td>
+							<input type="file" name="testfile1" required="">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Upload Test Image 2</td>
+						<td>
+							<input type="file" name="testfile2" required="">
+						</td>
+					</tr>
+
+					<tr>
+						<td>Upload Test Image 3</td>
+						<td>
+							<input type="file" name="testfile3" required="">
+						</td>
+					</tr>
+					<!--
+					<tr>
+						<td>Upload Test Image 4</td>
+						<td>
+							<input type="file" name="testfile4" required="">
+						</td>
+					</tr>
+					-->
+					<tr>
+						<td colspan="2">
+							<input type="Submit" name="" value = "Submit Images">
+						</td>
+					</tr>
+				</table>
+				
+			</form>
+			{% endblock %}
+		</div>
+
+	</body>
+</html>
